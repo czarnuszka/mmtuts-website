@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="header-brand">Czarnuszka</a>
+    <nav>
+        <ul>
+            <li><a href="news.html">Aktualności</a> </li>
+            <li><a href="about.html">O nas</a> </li>
+            <li><a href="contact.html">Kontakt</a> </li>
+        </ul>
+        <a href="signIn.html" class="header-cases">Posiadasz już konto? Zaloguj się!</a>
+    </nav>
+</header>
+<main>
+    <section class="form">
+        <div class="form-style-10">
+            <h1>REJESTRACJA</h1>
+            <form>
+                <div class="section"><span>1</span>Dane podstawowe</div>
+                <div class="inner-wrap">
+                    <label>Imie i Nazwisko <input type="text" name="field1" /></label>
+                    <label>Wiek <input type="date" id="date"></label>
+                    <label>Płeć <br> <div class="sex">Kobieta: <input type="radio" name="plec" > Mężczyzna: <input type="radio" name="plec" > Inne: <input type="radio" name="plec" ></div><br></label>
+                </div>
+
+                <div class="section"><span>2</span>Email & Telefon</div>
+                <div class="inner-wrap">
+                    <label>Email<input type="email" name="field3" /></label>
+                    <label>Numer telefonu <input type="text" name="field4" /></label>
+                </div>
+
+                <div class="section"><span>3</span>Hasło</div>
+                <div class="inner-wrap">
+                    <label>Hasło <input type="password" name="field5" /></label>
+                    <label>Powtórz hasło <input type="password" name="field6" /></label>
+                </div>
+                <div class="button-section">
+                    <input type="submit" name="Sign Up" />
+                    <span class="privacy-policy">
+                    <input type="checkbox" name="field7">Przeczytałem/am i akceptuję Regulamin oraz Politykę Prywatności
+                    </span>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+<div class="wrapper">
+    <footer>
+        <ul class="footer-links-main">
+            <li><a href="#">Strona główna</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Partnerzy</a></li>
+            <li><a href="#">Pomoc</a></li>
+        </ul>
+        <ul class="footer-links-cases">
+            <li><p>O nas</p></li>
+            <li><a href="#">Galeria zdjęć</a></li>
+            <li><a href="#">Kursy</a></li>
+            <li><a href="#">Wycieczki</a></li>
+            <li><a href="#">Aktualności</a></li>
+        </ul>
+        <div class="footer-sm">
+            <a href="mailto:jakkasztany@interia.pl">
+                <img src="img/email.png" alt="email icon">
+            </a>
+            <a href="https://www.facebook.com/gabriela.sygnarowska">
+                <img src="img/facebook.png" alt="facebook icon">
+            </a>
+            <a href="https://www.instagram.com/czarnuszk.a/">
+                <img src="img/instagram.png" alt="instagram icon">
+            </a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
