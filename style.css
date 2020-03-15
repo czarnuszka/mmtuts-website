@@ -101,6 +101,7 @@ input, select {
     vertical-align:middle;
 }
 
+
 /*MY CODE*/
 
 * {
@@ -150,7 +151,6 @@ header nav ul li a {
     font-family: Catamaran;
     font-size: 16px;
     color: #111;
-    text-transform: uppercase;
 }
 
 header .header-cases {
@@ -422,3 +422,6 @@ footer ul li a {
 
 
 }
+
+
+
