@@ -179,6 +179,15 @@ header .header-cases {
         line-height: 60px;
     }
 
+    header nav p {
+        font-family: Catamaran;
+        font-size: 18px;
+        text-align: right;
+        color: #111;
+        padding-top: 20px;
+        margin-right: 50px;
+    }
+
     header .header-cases {
         display: block;
         font-family: Catamaran;
@@ -186,11 +195,11 @@ header .header-cases {
         color: #111;
         text-transform: uppercase;
         line-height: 38px;
-        border: 1px solid #111;
+        border: 1.5px solid #111;
         border-radius: 4px;
         float: right;
-        margin-right: 40px;
-        margin-top: 30px;
+        margin-right: 50px;
+        margin-top: 25px;
         padding: 0 20px;
 
     }
@@ -201,7 +210,7 @@ header .header-cases {
 .index-banner {
     width: 100%;
     height: 100vh;
-    background-image: url('img/banner.jpg');
+    background-image: url('img/skate-banner.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -294,30 +303,32 @@ header .header-cases {
     }
 }
 
-/*CASES*/
+/*GALERIA*/
 
-.cases-links {
+.gallery-links {
     overflow: hidden;
     margin-bottom: 20px;
 }
 
-.cases-links h2 {
+.gallery-links h2 {
     font-family: Catamaran;
     font-size: 28px;
     font-weight: 600;
     color: #111;
+    text-align: center;
     text-transform: uppercase;
 }
 
-.cases-links .cases-link {
+.gallery-links .gallery-link {
     float: left;
     width: 230px;
     height: 230px;
     margin: 20px 10px 0px;
+    border-radius: 10px;
     background-color: #e3e3e3;
 }
 
-.cases-links .cases-link p {
+.gallery-links .gallery-link p {
     padding-top: 45%;
     font-family: Catamaran;
     font-size: 24px;
@@ -327,7 +338,7 @@ header .header-cases {
     text-transform: uppercase;
 }
 
-/*CASE*/
+/*FILMY*/
 
 .case-vid h2 {
     font-family: Catamaran;
@@ -337,15 +348,17 @@ header .header-cases {
     text-align: center;
     text-transform: uppercase;
 }
+
 .case-vid video {
     display: block;
     margin: 0 auto;
-    padding: 30px 0;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .case-vid article h3 {
     font-family: Catamaran;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
     color: #111;
     text-transform: uppercase;
@@ -355,10 +368,10 @@ header .header-cases {
 .case-vid article div p {
     font-family: Catamaran;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 24px;
     color: #111;
-    text-transform: uppercase;
+
     column-count: 3;
     column-gap: 30px;
 }
@@ -426,6 +439,7 @@ footer ul li a {
 }
 
 /*FORMS*/
+
 
 .form-style-10{
     width:450px;
@@ -515,18 +529,19 @@ footer ul li a {
     font: normal 20px 'Bitter', serif;
     color: #000;
     margin-bottom: 5px;
+
 }
 
 .form-style-10 .section span {
     background: #808080;
     padding: 5px 10px 5px 10px;
     border-radius: 50%;
-    position: absolute;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.13);
     font-size: 14px;
     margin-left: -45px;
+    margin-right: 15px;
     color: #fff;
     margin-top: -3px;
 }
