@@ -5,19 +5,19 @@
     <title>Rejestracja</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#navigationMenu").load("navigationMenu.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
 </head>
 <body>
-
 <header>
-    <a href="index.html" class="header-brand">Skate~Tour</a>
-    <nav>
-        <ul>
-            <li><a href="news.html">Aktualności</a> </li>
-            <li><a href="about.html">O nas</a> </li>
-            <li><a href="contact.html">Kontakt</a> </li>
-        </ul>
-            <p>Nie posiadasz jeszcze konta?</p><a href="signUp.html" class="header-cases">Zarejestuj się!</a>
-
+    <div id="navigationMenu"></div>
+    <nav id="no-account">
+        <p>Nie posiadasz jeszcze konta?</p><a href="signUp.html" class="header-cases">Zarejestuj się!</a>
     </nav>
 </header>
 <main>

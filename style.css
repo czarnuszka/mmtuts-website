@@ -158,6 +158,10 @@ header .header-cases {
 
 }
 
+#no-account {
+    display: none;
+}
+
 @media only screen and (min-width: 1000px) {
     header .header-brand {
         margin: 31px 0;
@@ -179,13 +183,22 @@ header .header-cases {
         line-height: 60px;
     }
 
-    header nav p {
+    #no-account {
+        float: right;
+        display: inline-block;
+    }
+
+    #no-account p, #no-account a {
+        display: inline-block;
+        margin-top: 25px;
+    }
+
+    #no-account p {
         font-family: Catamaran;
         font-size: 18px;
         text-align: right;
         color: #111;
-        padding-top: 20px;
-        margin-right: 50px;
+        padding: 10px 20px;
     }
 
     header .header-cases {
@@ -198,10 +211,9 @@ header .header-cases {
         border: 1.5px solid #111;
         border-radius: 4px;
         float: right;
+        padding: 0 20px;
         margin-right: 50px;
         margin-top: 25px;
-        padding: 0 20px;
-
     }
 }
 
