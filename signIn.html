@@ -1,75 +1,54 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/forms.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(function () {
+        $(function() {
             $("#navigationMenu").load("navigationMenu.html");
             $("#footer").load("footer.html");
         });
     </script>
 </head>
+
 <body>
 <header>
     <div id="navigationMenu"></div>
     <nav id="no-account">
-        <p>Nie posiadasz jeszcze konta?</p><a href="signUp.html" class="header-cases">Zarejestuj się!</a>
+        <p>Nie posiadasz jeszcze konta?</p><a href="signUp.html" class="header-login">Zarejestuj się!</a>
     </nav>
 </header>
 <main>
     <section class="form">
-        <div class="form-style-10">
+        <div class="form-style">
             <h1>LOGOWANIE</h1>
             <form>
                 <div class="section">Podaj dane do logowania</div>
                 <div class="inner-wrap">
-                    <label><input type="email" name="field3" placeholder="Adres email" /></label>
-                    <label><input type="password" name="field5" placeholder="Hasło" /></label>
+                    <label>
+                        <input type="email" name="field3" placeholder="Adres email" />
+                    </label>
+                    <label>
+                        <input type="password" name="field5" placeholder="Hasło" />
+                    </label>
                 </div>
 
                 <div class="button-section">
-                    <input type="submit" name="Sign In" value="Zaloguj się"/>
-                    <span class="remember-password">
-                    <input type="checkbox" name="field7">Zapamiętaj hasło
-                    </span>
+                        <span class="remember-password">
+                                <input type="checkbox" name="field7">Zapamiętaj hasło
+                            </span>
+                    <input type="submit" name="Sign In" value="Zaloguj się" />
                 </div>
             </form>
         </div>
     </section>
 </main>
-<div class="wrapper">
-    <footer>
-        <ul class="footer-links-main">
-            <li><a href="index.html">Strona główna</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Partnerzy</a></li>
-            <li><a href="#">Pomoc</a></li>
-        </ul>
-        <ul class="footer-links-cases">
-            <li><p>O nas</p></li>
-            <li><a href="#">Galeria zdjęć</a></li>
-            <li><a href="#">Kursy</a></li>
-            <li><a href="#">Wycieczki</a></li>
-            <li><a href="#">Aktualności</a></li>
-        </ul>
-        <div class="footer-sm">
-            <a href="mailto:jakkasztany@interia.pl">
-                <img src="img/email.png" alt="email icon">
-            </a>
-            <a href="https://www.facebook.com">
-                <img src="img/facebook.png" alt="facebook icon">
-            </a>
-            <a href="https://www.instagram.com">
-                <img src="img/instagram.png" alt="instagram icon">
-            </a>
-        </div>
-    </footer>
-</div>
-
+<div id="footer"></div>
 </body>
+
 </html>
