@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -20,9 +25,16 @@
 <header>
     <div id="navigationMenu"></div>
     <nav id="login">
-        <!-Logowanie-->
-        <a href="signUp.html" class="header-login">Załóż konto</a>
-        <a href="signIn.html" class="header-login">Zaloguj się</a>
+        <?php
+            if (isset($_SESSION['logged'])) {
+                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
+                echo '<a href="scripts/logout.php" class="header-login">Wyloguj się!</a>';
+            } else {
+                echo '<a href="signUp.php" class="header-login">Załóż konto</a>';
+                echo '<a href="signIn.php" class="header-login">Zaloguj się</a>';
+            }
+        ?>
+
     </nav>
 </header>
 <main>

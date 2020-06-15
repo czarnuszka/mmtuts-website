@@ -14,7 +14,9 @@
     padding: 30px;
     background: #F8F8F8;
     border-radius: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font: 13px Arial, Helvetica, sans-serif;
+    color: #808080;
 }
 .form-style h1{
     background: #696969;
@@ -49,21 +51,18 @@
     color: #808080;
 }
 
-.form-style .sex{
+.form-style .gender{
     padding: 20px;
     background: #FFF;
     border-radius: 6px;
     margin-bottom: 0;
+    color: #111111;
 }
 
 .form-style input[type="text"],
 .form-style input[type="date"],
-.form-style input[type="datetime"],
 .form-style input[type="email"],
 .form-style input[type="number"],
-.form-style input[type="search"],
-.form-style input[type="time"],
-.form-style input[type="url"],
 .form-style input[type="password"],
 .form-style textarea,
 .form-style select {
@@ -142,4 +141,16 @@
     color: #4D4D4D;
     margin: 5px 70px 0 10px;
     text-align: left;
+}
+
+.error {
+    color: red;
+}
+
+.successful_registration {
+    font-size: 30px;
+    margin: 40px;
+    text-align: center;
+    color: green;
+
 }

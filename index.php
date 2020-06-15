@@ -1,3 +1,17 @@
+<?php
+
+	session_start();
+
+	/*if (!isset($_SESSION['logged']))
+	{
+		header('Location: signIn.php');
+		exit();
+	}
+	*/
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -20,9 +34,19 @@
     <div id="navigationMenu"></div>
     <nav id="login">
         <!-Logowanie-->
-        <a href="signUp.html" class="header-login">Załóż konto</a>
-        <a href="signIn.html" class="header-login">Zaloguj się</a>
+        <?php
+            if (isset($_SESSION['logged'])) {
+                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
+                echo '<a href="scripts/logout.php" class="header-login">Wyloguj się!</a>';
+            } else {
+                echo '<a href="signUp.php" class="header-login">Załóż konto</a>';
+                echo '<a href="signIn.php" class="header-login">Zaloguj się</a>';
+            }
+        ?>
+
     </nav>
+
+
 </header>
 <section class="index-banner">
     <div class="vertical-center">
@@ -43,12 +67,12 @@
                     <h3>Trasy</h3>
                 </div>
             </a>
-            <a href="video.html">
+            <a href="video.php">
                 <div class="index-boxlink-square">
                     <h3>Filmy</h3>
                 </div>
             </a>
-            <a href="gallery.html">
+            <a href="gallery.php">
                 <div class="index-boxlink-rectangle">
                     <h3>Galeria zdjęć</h3>
                 </div>

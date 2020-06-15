@@ -1,9 +1,21 @@
+<?php
+	session_start();
+
+	if ((isset($_SESSION['logged'])) && ($_SESSION['logged']==true))
+	{
+		header('Location: ../skatetour/index.php');
+		exit();
+	}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
+    <title>Logowanie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/forms.css">
@@ -20,28 +32,33 @@
 <header>
     <div id="navigationMenu"></div>
     <nav id="no-account">
-        <p>Nie posiadasz jeszcze konta?</p><a href="signUp.html" class="header-login">Zarejestuj się!</a>
+        <p>Nie posiadasz jeszcze konta?</p><a href="signUp.php" class="header-login">Zarejestuj się!</a>
     </nav>
 </header>
 <main>
     <section class="form">
         <div class="form-style">
             <h1>LOGOWANIE</h1>
-            <form>
+            <form action="scripts/signin.php" method="post">
                 <div class="section">Podaj dane do logowania</div>
                 <div class="inner-wrap">
                     <label>
-                        <input type="email" name="field3" placeholder="Adres email" />
+                        <input type="email" name="login" placeholder="Adres email" />
                     </label>
                     <label>
-                        <input type="password" name="field5" placeholder="Hasło" />
+                        <input type="password" name="password" placeholder="Hasło" />
                     </label>
                 </div>
 
                 <div class="button-section">
                         <span class="remember-password">
-                                <input type="checkbox" name="field7">Zapamiętaj hasło
-                            </span>
+                            <label>
+                                <input type="checkbox">Zapamiętaj hasło
+                            </label>
+                                <?php
+                                if(isset($_SESSION['error']))	echo $_SESSION['error'];
+                                ?>
+                        </span>
                     <input type="submit" name="Sign In" value="Zaloguj się" />
                 </div>
             </form>

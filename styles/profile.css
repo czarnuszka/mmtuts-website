@@ -1,0 +1,32 @@
+.wrapper section {
+    display: flex;
+}
+
+.wrapper .left {
+    float: left;
+    flex: 1;
+}
+
+.wrapper .right {
+    flex: 3;
+    padding: 50px;
+}
+
+.wrapper .right .data {
+    padding: 10px;
+    flex: 5;
+    text-align: left;
+}
+
+.wrapper input[type="submit"]{
+    float: right;
+    padding: 5px;
+}
+
+.wrapper input[type="text"],
+.wrapper input[type="email"],
+.wrapper input[type="password"],
+.wrapper input[type="number"]
+{
+    margin: 5px;
+}

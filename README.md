@@ -1,2 +1,2 @@
-# mmtuts-website
-youtube.com/watch?v=kbLfWKGVsMQ
+# Praca inżynierska
+System rankingowy dla wirtualnego katalogu obiektów sportowych

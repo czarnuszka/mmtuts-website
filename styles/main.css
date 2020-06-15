@@ -219,7 +219,20 @@ header .header-login {
         margin-right: 50px;
         margin-top: 25px;
     }
+
+    header .header-loggedin {
+        display: block;
+        font-family: Catamaran;
+        font-size: 16px;
+        color: #111;
+        line-height: 38px;
+        float: right;
+        padding: 0 20px;
+        margin-top: 25px;
+    }
+
 }
+
 
 /*INDEX*/
 
@@ -258,7 +271,6 @@ header .header-login {
     color: #fff;
     text-align: center;
     text-shadow: 2px 2px 8px #111;
-
 }
 
 .index-links div {
@@ -278,6 +290,7 @@ header .header-login {
     text-align: center;
     text-transform: uppercase;
 }
+
 
 @media only screen and (min-width: 1000px) {
     .wrapper{
@@ -379,3 +392,4 @@ footer ul li a {
         padding-right: 50px;
     }
 }
+
