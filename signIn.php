@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function() {
-            $("#navigationMenu").load("navigationMenu.html");
+            $("#navigationMenu").load("navigationMenu.php");
             $("#footer").load("footer.html");
         });
     </script>
@@ -57,6 +57,7 @@
                             </label>
                                 <?php
                                 if(isset($_SESSION['error']))	echo $_SESSION['error'];
+                                unset($_SESSION['error']);
                                 ?>
                         </span>
                     <input type="submit" name="Sign In" value="Zaloguj się" />

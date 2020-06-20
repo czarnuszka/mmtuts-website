@@ -4,30 +4,30 @@
     if(isset($_POST['email']))
     {
         //udana walidacja? Tak
-        $wszystko_OK=true;
+        $is_valid=true;
 
         //Sprawdzanie czy zostało podane imie
         $name = $_POST['name'];
         if (strlen($name) == 0)
         {
-            $wszystko_OK=false;
-            $_SESSION['error_name']="Podaj imię!";
+            $is_valid=false;
+            $_SESSION['error_name']="Podaj imię";
         }
 
         //Sprawdzanie czy zostało podane nazwisko
         $lastname = $_POST['lastname'];
         if (strlen($lastname) == 0)
         {
-            $wszystko_OK=false;
-            $_SESSION['error_lastname']="Podaj nazwisko!";
+            $is_valid=false;
+            $_SESSION['error_lastname']="Podaj nazwisko";
         }
 
         //Sprawdzanie daty urodzenia
         $bday = $_POST['bday'];
         if (strlen($bday) == 0)
         {
-            $wszystko_OK=false;
-            $_SESSION['error_bday']="Podaj datę urodzenia!";
+            $is_valid=false;
+            $_SESSION['error_bday']="Podaj datę urodzenia";
         }
 
         //Sprawdzanie czy pole "płeć" zostało zaznaczone
@@ -38,8 +38,8 @@
         }
         else
         {
-            $wszystko_OK=false;
-            $_SESSION['error_gender']="Zaznacz płeć!";
+            $is_valid=false;
+            $_SESSION['error_gender']="Zaznacz płeć";
         }
 
 
@@ -49,8 +49,8 @@
 
         if ((filter_var($emailOK, FILTER_VALIDATE_EMAIL)==false) || ($emailOK!=$email))
         {
-           $wszystko_OK=false;
-           $_SESSION['error_email']="Podaj poprawny adres e-mail!";
+           $is_valid=false;
+           $_SESSION['error_email']="Podaj poprawny adres e-mail";
         }
 
 
@@ -58,8 +58,8 @@
         $phonenumber = $_POST['phonenumber'];
         if (strlen($phonenumber) != 9)
         {
-            $wszystko_OK=false;
-            $_SESSION['error_phonenumber']="Numer telefonu powinien składać się z 9 cyfr!";
+            $is_valid=false;
+            $_SESSION['error_phonenumber']="Numer telefonu powinien składać się z 9 cyfr";
         }
 
         //Sprawdzanie poprawności hasła
@@ -68,13 +68,13 @@
 
         if ((strlen($password1)<8) || (strlen($password1)>20))
         {
-           $wszystko_OK=false;
-           $_SESSION['error_password']="Hasło musi posiadać od 8 do 20 znaków!";
+           $is_valid=false;
+           $_SESSION['error_password']="Hasło musi posiadać od 8 do 20 znaków";
         }
         if ($password1!=$password2)
         {
-           $wszystko_OK=false;
-           $_SESSION['error_password']="Podane hasła nie są takie same!";
+           $is_valid=false;
+           $_SESSION['error_password']="Podane hasła nie są takie same";
         }
 
         $password_hash = password_hash($password1, PASSWORD_DEFAULT);
@@ -82,16 +82,16 @@
         //Czy regulamin został zaakceptowany?
         if (!isset($_POST['privacy_policy']))
         {
-            $wszystko_OK=false;
-            $_SESSION['error_privacy_policy']="Potwierdź akceptację regulaminu!";
+            $is_valid=false;
+            $_SESSION['error_privacy_policy']="Potwierdź akceptację regulaminu";
         }
 
-        require_once "scripts/connect.php";
+        require_once "scripts/config/database.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
         try
         {
-            $connection = new mysqli($host, $db_user, $db_password, $db_name);
+            $connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
             if ($connection->connect_errno!=0)
             {
                 throw new Exception(mysqli_connect_errno());
@@ -106,11 +106,11 @@
                 $number_of_emails = $result->num_rows;
                 if ($number_of_emails>0)
                 {
-                    $wszystko_OK=false;
+                    $is_valid=false;
                     $_SESSION['error_email']="Istnieje już konto o takim adresie email!";
                 }
 
-                if ($wszystko_OK==true)
+                if ($is_valid==true)
                 {
                     //Wszystkie testy zaliczone. Dodaj do bazy.
                     if ($connection->query("INSERT INTO users VALUES (NULL, '$name', '$lastname', '$bday', '$gender', '$email', '$phonenumber', '$password_hash' )"))
@@ -147,7 +147,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function() {
-            $("#navigationMenu").load("navigationMenu.html");
+            $("#navigationMenu").load("navigationMenu.php");
             $("#footer").load("footer.html");
         });
     </script>

@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function() {
-            $("#navigationMenu").load("navigationMenu.html");
+            $("#navigationMenu").load("navigationMenu.php");
             $("#footer").load("footer.html");
         });
     </script>
@@ -27,8 +27,8 @@
     <nav id="login">
         <?php
             if (isset($_SESSION['logged'])) {
-                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
                 echo '<a href="scripts/logout.php" class="header-login">Wyloguj się!</a>';
+                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
             } else {
                 echo '<a href="signUp.php" class="header-login">Załóż konto</a>';
                 echo '<a href="signIn.php" class="header-login">Zaloguj się</a>';

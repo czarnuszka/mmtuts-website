@@ -2,7 +2,18 @@
 
 session_start();
 
-require_once "scripts/helpers/displayError.php"
+require_once "scripts/config/database.php";
+
+$userId = $_POST['user_id'];
+$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$result = $connection->query("SELECT * FROM users WHERE id = " . $userId);
+
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
+
+$user = $result->fetch_assoc();
 
 ?>
 
@@ -48,37 +59,28 @@ require_once "scripts/helpers/displayError.php"
         <section>
             <div class="left">
                 <img src="img/avatar.jpg" alt="user">
-                <input type="file" value="Zmień avatar">
             </div>
             <div class="right">
                 <form action="scripts/updateProfile.php" method="post">
 
-                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']?>">
-                    <input type="hidden" name="redirect_success" value="../profile.php">
-                    <input type="hidden" name="redirect_error" value="../editProfile.php">
+                    <input type="hidden" name="user_id" value="<?php echo $user['id']?>">
+                    <input type="hidden" name="redirect_error" value="../editUsersProfile.php">
+                    <input type="hidden" name="redirect_success" value="../usersAdministration.php">
 
                     <div class="data">
-                        <h4>Imię:</h4><input type="text" name="name" value="<?php echo $_SESSION['name']?>">
+                        <h4>Imię:</h4><input type="text" name="name" value="<?php echo $user['name']?>">
                     </div>
                     <div class="data">
-                        <h4>Nazwisko:</h4><input type="text" name="lastname" value="<?php echo $_SESSION['lastname']?>">
+                        <h4>Nazwisko:</h4><input type="text" name="lastname" value="<?php echo $user['lastname']?>">
                     </div>
                     <div class="data">
-                        <h4>Data urodzenia:</h4><input type="text" name="bday" value="<?php echo $_SESSION['bday']?>">
+                        <h4>Data urodzenia:</h4><input type="text" name="bday" value="<?php echo $user['bday']?>">
                     </div>
                     <div class="data">
-                        <h4>Email:</h4><input type="text" name="email" value="<?php echo $_SESSION['email']?>">
+                        <h4>Email:</h4><input type="text" name="email" value="<?php echo $user['email']?>">
                     </div>
                     <div class="data">
-                        <h4>Numer telefonu:</h4><input type="text" name="phonenumber" value="<?php echo $_SESSION['phonenumber']?>">
-                    </div>
-                    <div class="data">
-                        <h4>Wprowadż stare hasło:</h4><input type="password" name="old_password">
-                        <h4>Wprowadż nowe hasło:</h4><input type="password" name="new_password">
-                        <h4>Powtórz nowe hasło:</h4><input type="password" name="repeat_new_password">
-                        <?php
-                            echo displaySessionErrors('error_password');
-                        ?>
+                        <h4>Numer telefonu:</h4><input type="text" name="phonenumber" value="<?php echo $user['phonenumber']?>">
                     </div>
 
                     <input type="submit" name="edit_data" value="Zapisz zmiany">

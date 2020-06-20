@@ -2,13 +2,6 @@
 
 	session_start();
 
-	/*if (!isset($_SESSION['logged']))
-	{
-		header('Location: signIn.php');
-		exit();
-	}
-	*/
-
 ?>
 
 
@@ -23,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function() {
-            $("#navigationMenu").load("navigationMenu.html");
+            $("#navigationMenu").load("navigationMenu.php");
             $("#footer").load("footer.html");
         });
     </script>
@@ -36,8 +29,8 @@
         <!-Logowanie-->
         <?php
             if (isset($_SESSION['logged'])) {
-                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
                 echo '<a href="scripts/logout.php" class="header-login">Wyloguj się!</a>';
+                echo '<a href="profile.php" class="header-loggedin">Witaj ' . $_SESSION['name'] . '</a>';
             } else {
                 echo '<a href="signUp.php" class="header-login">Załóż konto</a>';
                 echo '<a href="signIn.php" class="header-login">Zaloguj się</a>';
@@ -50,8 +43,8 @@
 </header>
 <section class="index-banner">
     <div class="vertical-center">
-        <h2>Tutaj będzie jakieś<br>SUPER<br>motywujące hasło</h2>
-        <h1>Albo dobry cytat..</h1>
+        <h2>ROLKI<br />Jak? Gdzie? Kiedy?</h2>
+        <h1>U nas wszystkiego się dowiesz!</h1>
     </div>
 </section>
 <main>

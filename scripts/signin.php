@@ -8,9 +8,9 @@
 		exit();
 	}
 
-	require_once "connect.php";
+	require_once "config/database.php";
 
-	$connection = @new mysqli($host, $db_user, $db_password, $db_name);
+	$connection = @new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if ($connection->connect_errno!=0)
 	{
@@ -41,6 +41,7 @@
 					$_SESSION['bday'] = $line['bday'];
 					$_SESSION['email'] = $line['email'];
 					$_SESSION['phonenumber'] = $line['phonenumber'];
+					$_SESSION['admin'] = $line['admin'];
 
 					unset($_SESSION['error']);
 					$result->free_result();

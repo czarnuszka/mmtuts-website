@@ -2,31 +2,35 @@
 
 session_start();
 
-require_once "connect.php";
+require_once "../scripts/helpers/database.php";
+require_once "../scripts/validators/password.php";
+
+$dbConnection = databaseConnection();
 
 // walidacja parametrow z formularza
+$userId = $_POST['user_id'];
+$old_password = $_POST['old_password'] ?? null;
+$new_password = $_POST['new_password'] ?? null;
+$repeat_new_password = $_POST['repeat_new_password'] ?? null;
 
-$connection = @new mysqli($host, $db_user, $db_password, $db_name);
-
-if ($connection->connect_errno!=0)
-{
-    die ("Error: " . $connection->connect_errno);
+if (!validatePasswordSet($dbConnection, $userId, $old_password, $new_password, $repeat_new_password)) {
+    header('Location: ' . $_POST['redirect_error']);
 }
 
-$id = $_SESSION['id'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $bday = $_POST['bday'];
 $email = $_POST['email'];
 $phonenumber = $_POST['phonenumber'];
-$password = $_POST['new_password'] ?? null;
 
-if(isset($password)) {
-    $statement = $connection->prepare("UPDATE users SET name=?, lastname=?, bday=?, email=?, phonenumber=?, password=? WHERE id=?");
-    $statement->bind_param('ssssssi', $name, $lastname, $bday, $email, $phonenumber, $password, $id);
+if(!empty($new_password)) {
+    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+    $statement = $dbConnection->prepare("UPDATE users SET name=?, lastname=?, bday=?, email=?, phonenumber=?, password=? WHERE id=?");
+    $statement->bind_param('ssssssi', $name, $lastname, $bday, $email, $phonenumber, $password_hash, $userId);
 } else {
-    $statement = $connection->prepare("UPDATE users SET name=?, lastname=?, bday=?, email=?, phonenumber=? WHERE id=?");
-    $statement->bind_param('sssssi', $name, $lastname, $bday, $email, $phonenumber, $id);
+    $statement = $dbConnection->prepare("UPDATE users SET name=?, lastname=?, bday=?, email=?, phonenumber=? WHERE id=?");
+    $statement->bind_param('sssssi', $name, $lastname, $bday, $email, $phonenumber, $userId);
 }
 
 $result = $statement->execute();
@@ -35,13 +39,5 @@ $statement->close();
 
 $_SESSION['profileUpdated'] = $result ? true : false;
 
-if ($result == true) {
-    $_SESSION['name'] = $name;
-    $_SESSION['lastname'] = $lastname;
-    $_SESSION['bday'] = $bday;
-    $_SESSION['email'] = $email;
-    $_SESSION['phonenumber'] = $phonenumber;
-}
-
-header('Location: ../profile.php');
+header('Location: ' . $_POST['redirect_success']);
 
