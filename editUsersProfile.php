@@ -2,6 +2,10 @@
 
 session_start();
 
+//if(!isset($_SESSION['admin'])) {
+//    header("Location: index.php");
+//}
+
 require_once "scripts/config/database.php";
 
 $userId = $_POST['user_id'];

@@ -89,7 +89,10 @@ require_once "scripts/config/database.php";
                                     <input type="hidden" name="user_id" value="' . $user['id'] .'">
                                     <input type="submit" value="Edytuj">
                                   </form></td>';
-                            echo '<td><a href="deleteUser.php"><input type="submit" value="Usuń"></a></td>';
+                            echo '<td><form action="scripts/deleteUser.php" method="post">
+                                        <input type="hidden" name="user_id" value="' . $user['id'] .'">
+                                        <input type="submit" value="Usuń">
+                                  </form></td>';
                             echo '</tr>';
                         }
                         echo '</table>';

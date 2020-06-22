@@ -113,7 +113,7 @@
                 if ($is_valid==true)
                 {
                     //Wszystkie testy zaliczone. Dodaj do bazy.
-                    if ($connection->query("INSERT INTO users VALUES (NULL, '$name', '$lastname', '$bday', '$gender', '$email', '$phonenumber', '$password_hash' )"))
+                    if ($connection->query("INSERT INTO users VALUES (NULL, '$name', '$lastname', '$bday', '$gender', '$email', '$phonenumber', '$password_hash', '$admin' )"))
                     {
                         $_SESSION['successful_registration']=true;
                         header('Location: successful_registration.php');

@@ -10,6 +10,8 @@
 
 	require_once "config/database.php";
 
+	//Połączneie z bazą
+
 	$connection = @new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if ($connection->connect_errno!=0)
@@ -23,15 +25,15 @@
 
 		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
 
-		if ($result = @$connection->query(
-		sprintf("SELECT * FROM users WHERE email='%s'",
-		mysqli_real_escape_string($connection,$login))))
+		if ($result = @$connection->query(sprintf("SELECT * FROM users WHERE email='%s'", mysqli_real_escape_string($connection,$login))))
 		{
+			//sprawdzanie czy istenieje w bazie taki użytkownik
+
 			$how_many_users = $result->num_rows;
 			if($how_many_users>0)
 			{
 				$line = $result->fetch_assoc();
-
+				//Weryfikacja hasła
 				if (password_verify($password, $line['password'])) {
 					$_SESSION['logged'] = true;
 
@@ -41,7 +43,7 @@
 					$_SESSION['bday'] = $line['bday'];
 					$_SESSION['email'] = $line['email'];
 					$_SESSION['phonenumber'] = $line['phonenumber'];
-					$_SESSION['admin'] = $line['admin'];
+					$_SESSION['admin'] = (bool) (int) $line['admin'];
 
 					unset($_SESSION['error']);
 					$result->free_result();

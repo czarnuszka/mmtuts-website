@@ -1,5 +1,7 @@
 <?php
 
+// Obsługa błędów
+
 function displaySessionErrors(string $sessionErrorField) : ?string
 {
     if (!isset($_SESSION[$sessionErrorField])) {
